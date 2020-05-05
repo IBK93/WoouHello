@@ -33,17 +33,13 @@ public class PrimeNumber {
 
 				// Check if our number is a prime number or not
 				// Print the result
-
-				if (ourNumber % 2 != 0 && ourNumber % 3 != 0 && ourNumber % 5 != 0 && ourNumber % 7 != 0
-						&& ourNumber % 11 != 0) {
+				
+				if(primeNumber(ourNumber) == true) {
 					System.out.println("The number " + ourNumber + " is a prime number");
-
 				} else {
 					System.out.println("The number " + ourNumber + " is not a prime number");
-
-				}
-				break;
-
+				} break;
+				
 			// If you choose a wrong option
 			default:
 				System.out.println("The selected option is not available");
@@ -54,4 +50,18 @@ public class PrimeNumber {
 		// We close the Scanner
 		sc.close();
 	}
+	
+	// We create a new method to check our number
+	private static boolean primeNumber(int number) {
+		int counter = 2;
+		boolean prime = true;
+	
+		while ((prime) && (counter != number)){
+			if (number % counter == 0)
+				prime = false;
+			counter++;
+		}
+		return prime;
+	}
 }
+
